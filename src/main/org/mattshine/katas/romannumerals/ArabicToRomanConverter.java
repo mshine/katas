@@ -5,7 +5,8 @@ import java.util.Arrays;
 public enum ArabicToRomanConverter {
     ITERATIVE {
         @Override
-        public String convert(Integer arabicNumber) {
+        String convert(Integer arabicNumber) {
+
             String result = "";
 
             for (RomanSymbol romanSymbol : RomanSymbol.values()) {
@@ -21,7 +22,7 @@ public enum ArabicToRomanConverter {
     },
     RECURSIVE {
         @Override
-        public String convert(Integer arabicNumber) {
+        String convert(Integer arabicNumber) {
 
             final RomanSymbol symbol = Arrays.stream(RomanSymbol.values()).filter(romanSymbol ->
                     romanSymbol.arabicNumber <= arabicNumber
@@ -35,5 +36,5 @@ public enum ArabicToRomanConverter {
         }
     };
 
-    public abstract String convert(Integer arabicNumber);
+    abstract String convert(Integer arabicNumber);
 }
