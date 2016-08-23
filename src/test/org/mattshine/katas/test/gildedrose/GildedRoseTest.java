@@ -131,4 +131,15 @@ public class GildedRoseTest {
         assertThat(app.items[0].sellIn, equalTo(-1));
         assertThat(app.items[0].quality, equalTo(18));
     }
+
+    @Test
+    public void checkConjuredItemsDegradeInQualityTwiceAsFast() {
+        Item[] items = new Item[]{
+            new Item("Conjured Mana Cake", 4, 30)
+        };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertThat(app.items[0].sellIn, equalTo(3));
+        assertThat(app.items[0].quality, equalTo(28));
+    }
 }

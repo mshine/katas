@@ -41,6 +41,17 @@ public enum ItemUpdater {
             if (item.sellIn < 0) item.quality = 0;
         }
     },
+    CONJURED_MANA_CAKE(matchingNames(
+            ItemNames.CONJURED_MANA_CAKE.name
+    )) {
+        @Override
+        public void updateItem(Item item) {
+            item.sellIn--;
+
+            decreaseQuality(item);
+            decreaseQuality(item);
+        }
+    },
     OTHER(Collections.emptySet()) {
         @Override
         public void updateItem(Item item) {
